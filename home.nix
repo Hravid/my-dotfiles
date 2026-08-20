@@ -350,6 +350,8 @@
         st = "status -sb";
         lg = "log --graph --oneline --decorate --all";
         undo = "reset --soft HEAD~1";
+        # `git acp "message"` = add all + commit + push (message optional)
+        acp = ''!f() { git add -A && git commit -m "''${1:-update}" && git push; }; f'';
       };
     };
   };
